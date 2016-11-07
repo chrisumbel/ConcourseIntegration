@@ -1,0 +1,26 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: microsoft/dotnet
+    tag: 1.0.0-preview2-sdk
+    
+inputs:
+  - name: code
+
+outputs:
+  - name: build 
+
+run:
+  dir: code
+  path: sh
+  args:
+  - -exc
+  - |
+    cd src/ConcourseTest
+    export NUGET_PACKAGES=../../packages
+    dotnet restore
+    dotnet build
+    cd ../..  
+    cp -R * ../build/

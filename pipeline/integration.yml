@@ -1,0 +1,16 @@
+platform: linux
+    
+inputs:
+  - name: code
+
+run:
+  dir: code
+  path: sh
+  args:
+  - -exc
+  - |
+    cd src/ConcourseTest
+    source /docker-lib.sh
+    start_docker
+    docker ps
+    docker-compose up

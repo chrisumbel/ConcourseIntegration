@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  my-service:
+    build: ..
+    command: /app/start.sh
+    links:
+      - db
+    ports:
+      - "5000:5000"
+  db:
+#    image: postgres
+    build: .
+    expose:
+      - "5432"
