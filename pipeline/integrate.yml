@@ -21,7 +21,8 @@ run:
     docker-compose build
     docker-compose up -d
 
-    until nc localhost 5000 -w 1; do
+    until nc localhost 5000 -w 1
+    do
       echo "waiting... "
       sleep 1
     done
