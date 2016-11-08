@@ -10,7 +10,7 @@ image_resource:
 
 run:
   dir: code
-  path: /bin/bash
+  path: bash
   args:
   - -exc
   - |
