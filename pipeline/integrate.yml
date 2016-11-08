@@ -18,6 +18,7 @@ run:
     source /docker-lib.sh
     start_docker
     docker ps
+    docker-compose build
     docker-compose up -d
     curl http://localhost:5000
     docker-compose down
