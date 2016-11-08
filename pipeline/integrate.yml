@@ -20,7 +20,7 @@ run:
     docker ps
     docker-compose build
     docker-compose up -d
-    nc localhost 5000 -w 1
+    nc --help
     echo "waiting... "
     sleep 30
     curl http://localhost:5000
