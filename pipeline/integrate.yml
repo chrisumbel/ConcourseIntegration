@@ -14,7 +14,7 @@ run:
   args:
   - -exc
   - |
-    cd src/ConcourseTest/integration-test
+    cd integration-test
     source /docker-lib.sh
     start_docker
     docker ps
