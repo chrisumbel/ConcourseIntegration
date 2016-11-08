@@ -20,8 +20,7 @@ run:
     docker ps
     docker-compose build
     docker-compose up -d
-    until nc -w 1 localhost 5000 -e /bin/echo
-    do
+    until curl http://localhost:5000  --connect-timeout 1; do
     echo "waiting... "
     sleep 1
     done
