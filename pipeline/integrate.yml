@@ -20,7 +20,7 @@ run:
     docker ps
     docker-compose build
     docker-compose up -d
-    until netcat localhost 5000 -w 1
+    until nc -w 1 localhost 5000
     do
     echo "waiting... "
     sleep 1
