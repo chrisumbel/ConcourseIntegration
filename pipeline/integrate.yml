@@ -23,8 +23,8 @@ run:
 
     until nc localhost 5000 -w 1
     do
-      echo "waiting... "
-      sleep 1
+    echo "waiting... "
+    sleep 1
     done
 
     curl http://localhost:5000
