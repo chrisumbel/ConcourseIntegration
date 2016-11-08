@@ -10,7 +10,7 @@ image_resource:
 
 run:
   dir: code
-  path: sh
+  path: /bin/bash
   args:
   - -exc
   - |
@@ -20,13 +20,11 @@ run:
     docker ps
     docker-compose build
     docker-compose up -d
-
     until nc localhost 5000 -w 1
     do
     echo "waiting... "
     sleep 1
     done
-
     curl http://localhost:5000
     docker-compose down
     echo "done!"
