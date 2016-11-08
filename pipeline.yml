@@ -4,7 +4,12 @@ resources:
     source:
       uri: https://github.com/chrisumbel/ConcourseIntegration.git
       branch: master
-
+  - name: chrisumbel-docker-image
+    type: docker-image
+    source:
+      repository: {{chrisumbel-docker-image-repository}}
+      username: {{chrisumbel-docker-image-username}}
+      password: {{chrisumbel-docker-image-password}}
 
 jobs:
   - name: build
@@ -20,6 +25,17 @@ jobs:
       file: code/pipeline/test.yml
   - name: integration
     plan:
+    - get: code
+      passed: [build]
+      trigger: true
     - task: docker-compose 
       file: code/pipeline/integrate.yml
       privileged: true
+  - name: deploy
+    plan:
+    - get: code
+      passed: [integration]
+      trigger: true         
+    - put: chrisumbel-docker-image
+      params: 
+        build: code
