@@ -10,7 +10,6 @@ resources:
       repository: {{chrisumbel-docker-image-repository}}
       username: {{chrisumbel-docker-image-username}}
       password: {{chrisumbel-docker-image-password}}
-
 jobs:
   - name: build
     plan:
