@@ -20,11 +20,9 @@ run:
     docker ps
     docker-compose build
     docker-compose up -d
-    until nc localhost 5000 -w 1
-    do
+    nc localhost 5000 -w 1
     echo "waiting... "
-    sleep 1
-    done
+    sleep 30
     curl http://localhost:5000
     docker-compose down
     echo "done!"
