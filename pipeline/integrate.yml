@@ -24,6 +24,8 @@ run:
     echo "waiting... "
     sleep 1
     done
+
+    # DO INTEGRATION TESTS HERE
     curl http://localhost:5000
     docker-compose down
     echo "done!"
